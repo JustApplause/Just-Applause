@@ -11,8 +11,8 @@
       background: #000;
       color: #333;
       overflow-x: hidden;
-      transition: background 3s ease;
-      background-image: url('images/floral-bg.png'); /* faint flower watermark */
+      transition: background 2s ease;
+      background-image: url('images/floral-bg.png'); /* optional faint flower watermark */
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -49,8 +49,8 @@
       font-size: 3rem; letter-spacing: 5px;
       color: #fff; text-transform: uppercase;
       z-index: 10; opacity: 0;
-      animation: fadeIn 2s ease forwards;
-      animation-delay: 1s;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.5s;
     }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -62,8 +62,8 @@
       transform: translateX(-50%);
       pointer-events: none;
       opacity: 0;
-      animation: lightOn 3s ease forwards;
-      animation-delay: 1s;
+      animation: lightOn 2s ease forwards;
+      animation-delay: 0.5s;
     }
     @keyframes lightOn { to { opacity: 1; } }
 
@@ -72,7 +72,7 @@
       position: absolute; bottom: 120px; left: 50%;
       transform: translateX(-50%) scale(0.8);
       opacity: 0;
-      animation: showImage 4s ease forwards;
+      animation: showImage 0.5s ease forwards; /* super fast */
     }
     .model img {
       width: 300px; border-radius: 12px;
@@ -86,13 +86,17 @@
     }
 
     /* Sections */
-    section { padding: 7rem 3rem; text-align: center; }
+    section { 
+      padding: 7rem 3rem; 
+      text-align: center; 
+      background: transparent;
+    }
     section h2 {
       font-size: 2.4rem; margin-bottom: 1rem;
       letter-spacing: 3px; color: #880e4f;
       font-weight: bold;
     }
-    section p, section ul {
+    section p {
       max-width: 800px; margin: auto;
       font-size: 1.2rem; line-height: 1.8; color: #444;
     }
@@ -103,7 +107,8 @@
       flex-wrap: wrap; margin-top: 3rem;
     }
     .price-card {
-      background: #fff; border-radius: 14px;
+      background: rgba(255,255,255,0.9); 
+      border-radius: 14px;
       box-shadow: 0 6px 25px rgba(0,0,0,0.1);
       padding: 2rem; width: 230px;
       transition: transform 0.3s, box-shadow 0.3s;
@@ -123,7 +128,7 @@
     footer { 
       padding: 2rem; 
       text-align: center; 
-      background: #f9e1e7; 
+      background: rgba(249,225,231,0.9); 
       color: #444; 
       font-size: 0.9rem;
       letter-spacing: 1px;
@@ -137,7 +142,7 @@
     <div class="nav-links">
       <a href="#collection">Collection</a>
       <a href="#pricing">Pricing</a>
-      <a href="#process">Process</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -145,21 +150,21 @@
   <!-- Hero Spotlight Runway -->
   <header class="hero">
     <div class="spotlight"></div>
-    <h1 class="hero-text">Elegance in Motion</h1>
+    <h1 class="hero-text">Beauty & Brains at Just Applause</h1>
 
-    <!-- 12 Looks -->
-    <div class="model" style="animation-delay: 2s;"><img src="images/look1.jpg" alt="Look 1"></div>
-    <div class="model" style="animation-delay: 6s;"><img src="images/look2.jpg" alt="Look 2"></div>
-    <div class="model" style="animation-delay: 10s;"><img src="images/look3.jpg" alt="Look 3"></div>
-    <div class="model" style="animation-delay: 14s;"><img src="images/look4.jpg" alt="Look 4"></div>
-    <div class="model" style="animation-delay: 18s;"><img src="images/look5.jpg" alt="Look 5"></div>
-    <div class="model" style="animation-delay: 22s;"><img src="images/look6.jpg" alt="Look 6"></div>
-    <div class="model" style="animation-delay: 26s;"><img src="images/look7.jpg" alt="Look 7"></div>
-    <div class="model" style="animation-delay: 30s;"><img src="images/look8.jpg" alt="Look 8"></div>
-    <div class="model" style="animation-delay: 34s;"><img src="images/look9.jpg" alt="Look 9"></div>
-    <div class="model" style="animation-delay: 38s;"><img src="images/look10.jpg" alt="Look 10"></div>
-    <div class="model" style="animation-delay: 42s;"><img src="images/look11.jpg" alt="Look 11"></div>
-    <div class="model" style="animation-delay: 46s;"><img src="images/look12.jpg" alt="Look 12"></div>
+    <!-- 12 Looks (fast staggered delays) -->
+    <div class="model" style="animation-delay: 0.2s;"><img src="images/look1.jpg" alt="Look 1"></div>
+    <div class="model" style="animation-delay: 0.8s;"><img src="images/look2.jpg" alt="Look 2"></div>
+    <div class="model" style="animation-delay: 1.4s;"><img src="images/look3.jpg" alt="Look 3"></div>
+    <div class="model" style="animation-delay: 2.0s;"><img src="images/look4.jpg" alt="Look 4"></div>
+    <div class="model" style="animation-delay: 2.6s;"><img src="images/look5.jpg" alt="Look 5"></div>
+    <div class="model" style="animation-delay: 3.2s;"><img src="images/look6.jpg" alt="Look 6"></div>
+    <div class="model" style="animation-delay: 3.8s;"><img src="images/look7.jpg" alt="Look 7"></div>
+    <div class="model" style="animation-delay: 4.4s;"><img src="images/look8.jpg" alt="Look 8"></div>
+    <div class="model" style="animation-delay: 5.0s;"><img src="images/look9.jpg" alt="Look 9"></div>
+    <div class="model" style="animation-delay: 5.6s;"><img src="images/look10.jpg" alt="Look 10"></div>
+    <div class="model" style="animation-delay: 6.2s;"><img src="images/look11.jpg" alt="Look 11"></div>
+    <div class="model" style="animation-delay: 6.8s;"><img src="images/look12.jpg" alt="Look 12"></div>
   </header>
 
   <!-- Collection -->
@@ -183,11 +188,12 @@
     </div>
   </section>
 
-  <!-- Retrospective Process -->
-  <section id="process">
-    <h2>Our Process</h2>
-    <p>From concept to creation, every piece embodies the essence of elegance, strength, and individuality. 
-    This process reflects a celebration of powerful femininity and luxury, designed for the modern woman.</p>
+  <!-- About -->
+  <section id="about">
+    <h2>About Just Applause</h2>
+    <p>Just Applause was founded by a 17-year-old who poured the majority of her life savings into a risk that started with nothing more than a late-night TikTok scroll. A simple hashtag — #YOLO — and a song sparked the thought: why not me?</p>
+    <p>This wasn’t just about fashion. It was about turning a dream into reality against the odds. I thought it through, I struggled with doubt, and I knew failure was a possibility — but I did it anyway.</p>
+    <p>Even if I didn’t believe in my current self, I did it for my younger self.</p>
   </section>
 
   <!-- Contact -->
@@ -205,7 +211,7 @@
   <script>
     setTimeout(() => {
       document.body.style.background = "#f9e1e7"; // pastel blush pink
-    }, 3000);
+    }, 800); // happens as first image appears
   </script>
 </body>
 </html>
