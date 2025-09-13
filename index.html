@@ -3,210 +3,142 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Applause</title>
+  <title>Just Applause Runway</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
+      margin: 0;
       font-family: 'Didot', serif;
       background: #000;
-      color: #333;
+      color: white;
       overflow-x: hidden;
       transition: background 1s ease;
-      background-image: url('images/floral-bg.png'); /* optional flower overlay */
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-
-    /* Navbar */
-    .navbar {
-      position: fixed; top: 0; left: 0; width: 100%;
-      display: flex; justify-content: space-between;
-      padding: 1.5rem 3rem;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-    }
-    .navbar a {
-      color: #fff; text-decoration: none; margin: 0 1rem;
-      font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px;
     }
 
     header {
       text-align: center;
-      padding: 6rem 2rem 2rem;
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #fff;
-      letter-spacing: 4px;
-    }
-
-    /* Runway Section */
-    .runway {
-      background: #000;
-      text-align: center;
-      padding: 6rem 2rem;
-      color: #fff;
-    }
-    .runway h2 {
+      padding: 2rem;
       font-size: 2rem;
-      margin-bottom: 2rem;
-      letter-spacing: 3px;
+      font-weight: bold;
+      letter-spacing: 4px;
       text-transform: uppercase;
     }
-    .runway-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3rem;
+
+    /* Runway */
+    .stage {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: black;
+      overflow: hidden;
     }
-    .runway-container img {
-      width: 350px;
-      max-width: 90%;
+
+    .spotlight {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(0,0,0,0.9) 70%);
       opacity: 0;
-      transform: scale(0.9);
-      animation: spotlight 1s forwards;
-    }
-    .runway-container img:nth-child(1) { animation-delay: 0.5s; }
-    .runway-container img:nth-child(2) { animation-delay: 1s; }
-    .runway-container img:nth-child(3) { animation-delay: 1.5s; }
-    .runway-container img:nth-child(4) { animation-delay: 2s; }
-    .runway-container img:nth-child(5) { animation-delay: 2.5s; }
-    .runway-container img:nth-child(6) { animation-delay: 3s; }
-    .runway-container img:nth-child(7) { animation-delay: 3.5s; }
-    .runway-container img:nth-child(8) { animation-delay: 4s; }
-    .runway-container img:nth-child(9) { animation-delay: 4.5s; }
-    .runway-container img:nth-child(10) { animation-delay: 5s; }
-    .runway-container img:nth-child(11) { animation-delay: 5.5s; }
-    .runway-container img:nth-child(12) { animation-delay: 6s; }
-
-    @keyframes spotlight {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
+      animation: spotlightOn 2s forwards;
     }
 
-    /* Pricing Section */
-    #pricing {
-      background: #f7d6e0; /* pastel pink */
-      padding: 5rem 2rem;
+    @keyframes spotlightOn {
+      to { opacity: 1; }
+    }
+
+    .runway {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .runway img {
+      max-height: 80%;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: showImage 1s forwards;
+    }
+
+    @keyframes showImage {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* After first image → background changes */
+    body.active {
+      background: #f8d9e6; /* pastel pink */
+      color: #333;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem;
       text-align: center;
     }
-    #pricing h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #222;
-    }
-    .pricing-img {
-      max-width: 600px;
-      width: 90%;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
 
-    /* About Section */
-    #about {
-      padding: 5rem 2rem;
-      background: #fbeaf0;
-      text-align: center;
-    }
-    #about h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #222;
-    }
-    #about p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* Contact Section */
-    #contact {
-      background: #f9dce5;
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-    #contact h2 {
+    h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
-      color: #b30059;
     }
-    #contact a {
-      color: #b30059;
-      font-weight: bold;
+
+    .contact a {
+      color: #c2185b;
       text-decoration: none;
+      font-weight: bold;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      background: #eee;
-      color: #555;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">JUST APPLAUSE</div>
-    <div>
-      <a href="#collection">Collection</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+  <header>Beauty and Brains at Just Applause</header>
+
+  <div class="stage">
+    <div class="spotlight"></div>
+    <div class="runway">
+      <img src="images/photo1.jpg" alt="Outfit 1">
     </div>
-  </nav>
-
-  <header>
-    Beauty and Brains at Just Applause
-  </header>
-
-  <section id="collection" class="runway">
-    <h2>Runway</h2>
-    <div class="runway-container">
-      <img src="images/top1.jpg" alt="Top 1">
-      <img src="images/top2.jpg" alt="Top 2">
-      <img src="images/top3.jpg" alt="Top 3">
-      <img src="images/top4.jpg" alt="Top 4">
-      <img src="images/top5.jpg" alt="Top 5">
-      <img src="images/top6.jpg" alt="Top 6">
-      <img src="images/top7.jpg" alt="Top 7">
-      <img src="images/top8.jpg" alt="Top 8">
-      <img src="images/top9.jpg" alt="Top 9">
-      <img src="images/top10.jpg" alt="Top 10">
-      <img src="images/top11.jpg" alt="Top 11">
-      <img src="images/top12.jpg" alt="Top 12">
-    </div>
-  </section>
-
-  <section id="pricing">
-    <h2>Pricing</h2>
-    <img src="images/pricing.jpg" alt="Price List" class="pricing-img">
-  </section>
+  </div>
 
   <section id="about">
     <h2>About Just Applause</h2>
     <p>
-      Just Applause was founded by a 17-year-old who poured the majority of her life savings into a risk that started with nothing more than a late-night TikTok scroll.  
-      A simple hashtag — #YOLO — and a song sparked the thought: why not me?  
-      This wasn’t just about fashion. It was about turning a dream into reality against the odds.  
-      I thought it through, I struggled with doubt, and I knew failure was a possibility — but I did it anyway.  
+      Just Applause was founded by a 17-year-old who poured the majority of her life savings into 
+      a risk that started with nothing more than a late-night TikTok scroll. A simple hashtag — 
+      #YOLO — and a song sparked the thought: why not me? <br><br>
+      This wasn’t just about fashion. It was about turning a dream into reality against the odds. 
+      I thought it through, I struggled with doubt, and I knew failure was a possibility — but I did it anyway. <br><br>
       Even if I didn’t believe in my current self, I did it for my younger self.
     </p>
   </section>
 
-  <section id="contact">
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <img src="images/pricelist.png" alt="Price List" style="max-width:90%; border-radius:10px;">
+  </section>
+
+  <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Email: 
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=justapplause0101@gmail.com" target="_blank">
-        justapplause0101@gmail.com
-      </a>
-    </p>
+    <p>Email: <a href="mailto:justapplause0101@gmail.com">justapplause0101@gmail.com</a></p>
   </section>
 
   <footer>
-    © 2025 Just Applause · Empowered Elegance
+    © 2025 Just Applause
   </footer>
+
+  <script>
+    // Change background after first image loads
+    window.onload = () => {
+      setTimeout(() => {
+        document.body.classList.add("active");
+      }, 1500); // faster transition
+    };
+  </script>
 </body>
 </html>
