@@ -9,7 +9,7 @@
     body {
       font-family: 'Didot', serif;
       background: #000;
-      color: #fff;
+      color: #333;
       overflow-x: hidden;
       transition: background 1s ease;
     }
@@ -19,103 +19,103 @@
       position: fixed; top: 0; left: 0; width: 100%;
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.5rem 3rem;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0,0,0,0.6);
       backdrop-filter: blur(10px);
       z-index: 1000;
     }
-    .navbar .logo {
-      font-size: 1.8rem; font-weight: bold; letter-spacing: 4px;
-      color: #fff; text-transform: uppercase;
-    }
+    .navbar .logo { font-size: 1.8rem; font-weight: bold; letter-spacing: 4px; color: #fff; }
     .navbar .nav-links a {
-      margin-left: 2rem;
-      text-decoration: none;
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 1rem;
+      margin-left: 2rem; text-decoration: none; color: #fff;
+      text-transform: uppercase; font-size: 1rem;
       transition: color 0.3s;
     }
     .navbar .nav-links a:hover { color: #c2185b; }
 
     /* Runway */
     .runway {
-      position: relative;
-      height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #000;
+      white-space: nowrap;
       overflow: hidden;
+      width: 100%;
+      height: 100vh;
+      position: relative;
     }
-    .runway-track {
-      display: flex;
-      animation: slide 20s linear infinite;
+    .runway img {
+      height: 100vh;
+      width: auto;
+      animation: slide 24s linear infinite;
     }
-    .runway-track img {
-      height: 80vh;
-      margin: 0 2rem;
-      opacity: 0;
-      transform: translateY(50px);
-      animation: spotlight 2s forwards;
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
     }
-    .runway-track img:nth-child(1) { animation-delay: 0s; }
-    .runway-track img:nth-child(2) { animation-delay: 1s; }
-    .runway-track img:nth-child(3) { animation-delay: 2s; }
-    .runway-track img:nth-child(4) { animation-delay: 3s; }
-    .runway-track img:nth-child(5) { animation-delay: 4s; }
-    .runway-track img:nth-child(6) { animation-delay: 5s; }
-    .runway-track img:nth-child(7) { animation-delay: 6s; }
-    .runway-track img:nth-child(8) { animation-delay: 7s; }
-    .runway-track img:nth-child(9) { animation-delay: 8s; }
-    .runway-track img:nth-child(10) { animation-delay: 9s; }
-    .runway-track img:nth-child(11) { animation-delay: 10s; }
-    .runway-track img:nth-child(12) { animation-delay: 11s; }
-
-    @keyframes spotlight {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Background transition */
-    body.light-theme {
-      background: #f9d7e2;
-      color: #333;
-    }
-
-    /* Sections */
-    section {
-      padding: 6rem 2rem;
-      text-align: center;
-    }
-    h2 { font-size: 2.2rem; margin-bottom: 1rem; }
-    p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; line-height: 1.6; }
 
     /* Pricing */
-    .pricing img {
-      max-width: 500px;
-      border: 2px solid #c2185b;
-      border-radius: 12px;
-      margin-top: 2rem;
+    .pricing {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #f8d9e6;
     }
-
-    /* Contact */
-    .contact a {
+    .pricing h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
       color: #c2185b;
-      text-decoration: none;
+      letter-spacing: 2px;
+    }
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+    }
+    .price-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .price-item img {
+      max-width: 180px;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .price-item p {
+      font-size: 1.2rem;
+      color: #333;
       font-weight: bold;
     }
-    .contact a:hover { text-decoration: underline; }
+
+    /* About */
+    .about {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #fce4ec;
+      color: #333;
+    }
+    .about h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+    .about p { font-size: 1.1rem; max-width: 700px; margin: auto; line-height: 1.6; }
+
+    /* Contact */
+    .contact {
+      padding: 3rem;
+      text-align: center;
+      background: #f8d9e6;
+    }
+    .contact h2 { font-size: 2rem; margin-bottom: 1rem; color: #c2185b; }
+    .contact a { color: #c2185b; text-decoration: none; font-weight: bold; }
 
     footer {
-      padding: 2rem;
       text-align: center;
+      padding: 1rem;
+      background: #111;
+      color: #fff;
       font-size: 0.9rem;
-      background: #eee;
-      color: #444;
     }
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <div class="navbar">
     <div class="logo">JUST APPLAUSE</div>
@@ -127,45 +127,55 @@
   </div>
 
   <!-- Runway -->
-  <section class="runway">
-    <div class="runway-track">
-      <img src="1.jpg" alt="Look 1">
-      <img src="2.jpg" alt="Look 2">
-      <img src="3.jpg" alt="Look 3"> <!-- convert 3.HEIC -->
-      <img src="4.jpeg" alt="Look 4">
-      <img src="5.jpg" alt="Look 5">
-      <img src="6.jpeg" alt="Look 6">
-      <img src="7.jpg" alt="Look 7">
-      <img src="8.jpg" alt="Look 8">
-      <img src="9.jpeg" alt="Look 9">
-      <img src="10.jpeg" alt="Look 10">
-      <img src="11.jpg" alt="Look 11">
-      <img src="12.jpg" alt="Look 12">
-    </div>
+  <section class="runway" id="runway">
+    <img src="1.jpg" alt="Look 1">
+    <img src="2.jpg" alt="Look 2">
+    <img src="3.HEIC" alt="Look 3">
+    <img src="4.jpeg" alt="Look 4">
+    <img src="5.jpg" alt="Look 5">
+    <img src="6.jpeg" alt="Look 6">
+    <img src="7.jpg" alt="Look 7">
+    <img src="8.jpg" alt="Look 8">
+    <img src="9.jpeg" alt="Look 9">
+    <img src="10.jpeg" alt="Look 10">
+    <img src="11.jpg" alt="Look 11">
+    <img src="12.jpg" alt="Look 12">
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="pricing">
-    <h2>Pricing</h2>
-    <p>Discover our exclusive collection at elegant prices.</p>
-    <img src="pricing-list.jpg" alt="Price List">
+  <section class="pricing" id="pricing">
+    <h2>Beauty and Brains at Just Applause</h2>
+    <div class="price-grid">
+      <div class="price-item"><img src="1.jpg"><p>$26</p></div>
+      <div class="price-item"><img src="2.jpg"><p>$24</p></div>
+      <div class="price-item"><img src="3.HEIC"><p>$14</p></div>
+      <div class="price-item"><img src="4.jpeg"><p>$17.50</p></div>
+      <div class="price-item"><img src="5.jpg"><p>$48</p></div>
+      <div class="price-item"><img src="6.jpeg"><p>$44</p></div>
+      <div class="price-item"><img src="7.jpg"><p>$26</p></div>
+      <div class="price-item"><img src="8.jpg"><p>$24</p></div>
+      <div class="price-item"><img src="9.jpeg"><p>$14</p></div>
+      <div class="price-item"><img src="10.jpeg"><p>$17.50</p></div>
+      <div class="price-item"><img src="11.jpg"><p>$48</p></div>
+      <div class="price-item"><img src="12.jpg"><p>$44</p></div>
+    </div>
   </section>
 
   <!-- About -->
-  <section id="about">
+  <section class="about" id="about">
     <h2>About Just Applause</h2>
     <p>
-      Just Applause was founded by a 17-year-old who poured the majority of her life savings into a risk
-      that started with nothing more than a late-night TikTok scroll. A simple hashtag — #YOLO —
-      and a song sparked the thought: why not me? <br><br>
-      This wasn’t just about fashion. It was about turning a dream into reality against the odds.
-      I thought it through, I struggled with doubt, and I knew failure was a possibility — but I did it anyway. <br><br>
+      Just Applause was founded by a 17-year-old who poured the majority of her life savings into a risk 
+      that started with nothing more than a late-night TikTok scroll. A simple hashtag — #YOLO — and a song 
+      sparked the thought: why not me?<br><br>
+      This wasn’t just about fashion. It was about turning a dream into reality against the odds. I thought it through, 
+      I struggled with doubt, and I knew failure was a possibility — but I did it anyway.<br><br>
       Even if I didn’t believe in my current self, I did it for my younger self.
     </p>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact">
+  <section class="contact" id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:justapplause0101@gmail.com">justapplause0101@gmail.com</a></p>
   </section>
@@ -175,10 +185,12 @@
   </footer>
 
   <script>
-    // Auto change background after first image
-    setTimeout(() => {
-      document.body.classList.add('light-theme');
-    }, 2000); // 2s for quick transition
+    // Background color change after first image
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.body.style.background = "#f8d9e6"; // soft pastel pink
+      }, 1000); // switches right as runway begins
+    });
   </script>
 </body>
 </html>
