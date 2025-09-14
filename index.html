@@ -18,157 +18,167 @@
     .navbar {
       position: fixed; top: 0; left: 0; width: 100%;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 3rem;
-      background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);
+      padding: 1.5rem 3rem;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
       z-index: 1000;
     }
     .navbar .logo {
-      font-size: 2rem; font-weight: bold; letter-spacing: 3px;
+      font-size: 1.8rem; font-weight: bold; letter-spacing: 4px;
+      color: #fff; text-transform: uppercase;
     }
-    .navbar a {
-      margin-left: 2rem; text-decoration: none; color: #fff; text-transform: uppercase;
+    .navbar .nav-links a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 1rem;
+      transition: color 0.3s;
     }
-    .navbar a:hover { color: #e75480; }
+    .navbar .nav-links a:hover { color: #c2185b; }
 
-    /* Hero Runway */
-    .hero {
-      position: relative; height: 100vh; display: flex; justify-content: center; align-items: center;
-      text-align: center; overflow: hidden;
+    /* Runway */
+    .runway {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      overflow: hidden;
     }
-    .hero h1 {
-      font-size: 3rem; letter-spacing: 4px;
-      animation: fadeIn 2s ease forwards;
+    .runway-track {
+      display: flex;
+      animation: slide 20s linear infinite;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+    .runway-track img {
+      height: 80vh;
+      margin: 0 2rem;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: spotlight 2s forwards;
+    }
+    .runway-track img:nth-child(1) { animation-delay: 0s; }
+    .runway-track img:nth-child(2) { animation-delay: 1s; }
+    .runway-track img:nth-child(3) { animation-delay: 2s; }
+    .runway-track img:nth-child(4) { animation-delay: 3s; }
+    .runway-track img:nth-child(5) { animation-delay: 4s; }
+    .runway-track img:nth-child(6) { animation-delay: 5s; }
+    .runway-track img:nth-child(7) { animation-delay: 6s; }
+    .runway-track img:nth-child(8) { animation-delay: 7s; }
+    .runway-track img:nth-child(9) { animation-delay: 8s; }
+    .runway-track img:nth-child(10) { animation-delay: 9s; }
+    .runway-track img:nth-child(11) { animation-delay: 10s; }
+    .runway-track img:nth-child(12) { animation-delay: 11s; }
+
+    @keyframes spotlight {
+      from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Slideshow */
-    .slideshow {
-      display: flex; justify-content: center; align-items: center;
-      height: 100vh; background: #000;
-      animation: bgChange 3s ease forwards;
-    }
-    @keyframes bgChange {
-      to { background: #f8d7da; color: #000; }
-    }
-    .slideshow img {
-      max-height: 80vh;
-      max-width: 90%;
-      margin: 0 15px;
-      opacity: 0;
-      transform: scale(0.8);
-      animation: slideIn 1s ease forwards;
-    }
-    .slideshow img:nth-child(1) { animation-delay: 0.3s; }
-    .slideshow img:nth-child(2) { animation-delay: 0.6s; }
-    .slideshow img:nth-child(3) { animation-delay: 0.9s; }
-    .slideshow img:nth-child(4) { animation-delay: 1.2s; }
-    .slideshow img:nth-child(5) { animation-delay: 1.5s; }
-    .slideshow img:nth-child(6) { animation-delay: 1.8s; }
-    .slideshow img:nth-child(7) { animation-delay: 2.1s; }
-    .slideshow img:nth-child(8) { animation-delay: 2.4s; }
-    .slideshow img:nth-child(9) { animation-delay: 2.7s; }
-    .slideshow img:nth-child(10) { animation-delay: 3s; }
-    .slideshow img:nth-child(11) { animation-delay: 3.3s; }
-    .slideshow img:nth-child(12) { animation-delay: 3.6s; }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: scale(0.7); }
-      to { opacity: 1; transform: scale(1); }
+    /* Background transition */
+    body.light-theme {
+      background: #f9d7e2;
+      color: #333;
     }
 
-    /* About Section */
-    .about {
-      padding: 4rem 2rem; background: #f8d7da; color: #000; text-align: center;
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+      text-align: center;
     }
-    .about h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .about p { font-size: 1.2rem; max-width: 800px; margin: auto; }
+    h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+    p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; line-height: 1.6; }
 
     /* Pricing */
-    .pricing {
-      padding: 4rem 2rem; background: #fff0f5; color: #000; text-align: center;
+    .pricing img {
+      max-width: 500px;
+      border: 2px solid #c2185b;
+      border-radius: 12px;
+      margin-top: 2rem;
     }
-    .pricing h2 { font-size: 2rem; margin-bottom: 2rem; }
-    .pricing img { max-width: 600px; border: 2px solid #e75480; border-radius: 10px; }
 
     /* Contact */
-    .contact {
-      padding: 4rem 2rem; background: #f8d7da; text-align: center;
-    }
-    .contact h2 { font-size: 2rem; margin-bottom: 1rem; }
     .contact a {
-      font-size: 1.2rem; color: #e75480; text-decoration: none;
+      color: #c2185b;
+      text-decoration: none;
+      font-weight: bold;
     }
     .contact a:hover { text-decoration: underline; }
 
-    /* Footer */
     footer {
-      padding: 2rem; background: #000; color: #fff; text-align: center;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      background: #eee;
+      color: #444;
     }
   </style>
 </head>
 <body>
-
   <!-- Navbar -->
   <div class="navbar">
     <div class="logo">JUST APPLAUSE</div>
     <div class="nav-links">
-      <a href="#collection">Collection</a>
       <a href="#pricing">Pricing</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Beauty and Brains at Just Applause</h1>
+  <!-- Runway -->
+  <section class="runway">
+    <div class="runway-track">
+      <img src="1.jpg" alt="Look 1">
+      <img src="2.jpg" alt="Look 2">
+      <img src="3.jpg" alt="Look 3"> <!-- convert 3.HEIC -->
+      <img src="4.jpeg" alt="Look 4">
+      <img src="5.jpg" alt="Look 5">
+      <img src="6.jpeg" alt="Look 6">
+      <img src="7.jpg" alt="Look 7">
+      <img src="8.jpg" alt="Look 8">
+      <img src="9.jpeg" alt="Look 9">
+      <img src="10.jpeg" alt="Look 10">
+      <img src="11.jpg" alt="Look 11">
+      <img src="12.jpg" alt="Look 12">
+    </div>
   </section>
 
-  <!-- Slideshow -->
-  <section class="slideshow" id="collection">
-    <img src="1.jpg" alt="Look 1">
-    <img src="2.jpg" alt="Look 2">
-    <img src="3.jpeg" alt="Look 3">
-    <img src="4.jpeg" alt="Look 4">
-    <img src="5.jpg" alt="Look 5">
-    <img src="6.jpeg" alt="Look 6">
-    <img src="7.jpg" alt="Look 7">
-    <img src="8.jpg" alt="Look 8">
-    <img src="9.jpeg" alt="Look 9">
-    <img src="10.jpeg" alt="Look 10">
-    <img src="11.jpg" alt="Look 11">
-    <img src="12.jpg" alt="Look 12">
+  <!-- Pricing -->
+  <section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <p>Discover our exclusive collection at elegant prices.</p>
+    <img src="pricing-list.jpg" alt="Price List">
   </section>
 
   <!-- About -->
-  <section class="about" id="about">
+  <section id="about">
     <h2>About Just Applause</h2>
     <p>
-      Just Applause was founded by a 17-year-old who poured the majority of her life savings into a risk that started with nothing more than a late-night TikTok scroll. A simple hashtag — #YOLO — and a song sparked the thought: why not me?<br><br>
-      This wasn’t just about fashion. It was about turning a dream into reality against the odds. I thought it through, I struggled with doubt, and I knew failure was a possibility — but I did it anyway.<br><br>
+      Just Applause was founded by a 17-year-old who poured the majority of her life savings into a risk
+      that started with nothing more than a late-night TikTok scroll. A simple hashtag — #YOLO —
+      and a song sparked the thought: why not me? <br><br>
+      This wasn’t just about fashion. It was about turning a dream into reality against the odds.
+      I thought it through, I struggled with doubt, and I knew failure was a possibility — but I did it anyway. <br><br>
       Even if I didn’t believe in my current self, I did it for my younger self.
     </p>
   </section>
 
-  <!-- Pricing -->
-  <section class="pricing" id="pricing">
-    <h2>Pricing</h2>
-    <img src="pricing.jpg" alt="Pricing List">
-  </section>
-
   <!-- Contact -->
-  <section class="contact" id="contact">
+  <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:justapplause0101@gmail.com">justapplause0101@gmail.com</a></p>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Just Applause </p>
+    © 2025 Just Applause · Empowered Elegance
   </footer>
 
+  <script>
+    // Auto change background after first image
+    setTimeout(() => {
+      document.body.classList.add('light-theme');
+    }, 2000); // 2s for quick transition
+  </script>
 </body>
 </html>
