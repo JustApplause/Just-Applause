@@ -8,8 +8,8 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Didot', serif;
-      background: #000;
-      color: #333;
+      background: #000; /* start black */
+      color: #fff;
       overflow-x: hidden;
       transition: background 1s ease;
     }
@@ -17,180 +17,143 @@
     /* Navbar */
     .navbar {
       position: fixed; top: 0; left: 0; width: 100%;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.5rem 3rem;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
+      display: flex; justify-content: space-between;
+      padding: 1.2rem 2rem;
+      background: rgba(0,0,0,0.5);
       z-index: 1000;
     }
-    .navbar .logo { font-size: 1.8rem; font-weight: bold; letter-spacing: 4px; color: #fff; }
-    .navbar .nav-links a {
-      margin-left: 2rem; text-decoration: none; color: #fff;
-      text-transform: uppercase; font-size: 1rem;
-      transition: color 0.3s;
+    .navbar .logo {
+      font-size: 1.5rem; font-weight: bold; letter-spacing: 3px;
     }
-    .navbar .nav-links a:hover { color: #c2185b; }
-
-    /* Runway */
-    .runway {
-      display: flex;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 100%;
-      height: 100vh;
-      position: relative;
-    }
-    .runway img {
-      height: 100vh;
-      width: auto;
-      animation: slide 24s linear infinite;
-    }
-    @keyframes slide {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+    .navbar a {
+      color: #fff; text-decoration: none; margin: 0 1rem;
+      text-transform: uppercase; letter-spacing: 2px;
     }
 
-    /* Pricing */
-    .pricing {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: #f8d9e6;
+    /* Hero Runway */
+    .hero {
+      position: relative; height: 100vh;
+      display: flex; justify-content: center; align-items: center;
+      text-align: center; overflow: hidden;
     }
-    .pricing h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #c2185b;
-      letter-spacing: 2px;
+    .hero-text {
+      position: absolute; top: 15%;
+      font-size: 2.5rem; letter-spacing: 4px;
+      color: #fff; text-transform: uppercase;
+      z-index: 10; opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 0.5s;
     }
-    .price-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      justify-items: center;
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+    /* Models walking from side */
+    .model {
+      position: absolute; bottom: 100px;
+      opacity: 0; transform: translateX(100%) scale(0.9);
+      animation: walk 1s forwards;
     }
-    .price-item {
-      background: #fff;
+    .model img {
+      width: 300px; border-radius: 12px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.4);
+    }
+    @keyframes walk {
+      0% { opacity: 0; transform: translateX(100%) scale(0.9); }
+      50% { opacity: 1; transform: translateX(-50%) scale(1); }
+      100% { opacity: 0; transform: translateX(-200%) scale(1.1); }
+    }
+
+    /* Sections */
+    section { padding: 6rem 2rem; text-align: center; }
+    section h2 { font-size: 2rem; margin-bottom: 1rem; color: #880e4f; }
+    section p { max-width: 700px; margin: auto; font-size: 1.2rem; line-height: 1.7; }
+
+    /* Pricing (your uploaded list image) */
+    .pricing img {
+      max-width: 90%;
       border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
+      margin-top: 2rem;
     }
-    .price-item img {
-      max-width: 180px;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-    }
-    .price-item p {
-      font-size: 1.2rem;
-      color: #333;
+
+    /* Contact */
+    .contact a {
+      color: #c2185b;
+      text-decoration: none;
       font-weight: bold;
     }
 
-    /* About */
-    .about {
-      padding: 4rem 2rem;
-      text-align: center;
-      background: #fce4ec;
-      color: #333;
-    }
-    .about h2 { font-size: 2rem; margin-bottom: 1.5rem; }
-    .about p { font-size: 1.1rem; max-width: 700px; margin: auto; line-height: 1.6; }
-
-    /* Contact */
-    .contact {
-      padding: 3rem;
-      text-align: center;
-      background: #f8d9e6;
-    }
-    .contact h2 { font-size: 2rem; margin-bottom: 1rem; color: #c2185b; }
-    .contact a { color: #c2185b; text-decoration: none; font-weight: bold; }
-
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #111;
-      color: #fff;
+      padding: 2rem;
       font-size: 0.9rem;
+      background: #f8d9e6;
+      color: #333;
     }
   </style>
 </head>
 <body>
-
   <!-- Navbar -->
-  <div class="navbar">
+  <nav class="navbar">
     <div class="logo">JUST APPLAUSE</div>
-    <div class="nav-links">
+    <div>
       <a href="#pricing">Pricing</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
-  </div>
+  </nav>
 
-  <!-- Runway -->
-  <section class="runway" id="runway">
-    <img src="1.jpg" alt="Look 1">
-    <img src="2.jpg" alt="Look 2">
-    <img src="3.HEIC" alt="Look 3">
-    <img src="4.jpeg" alt="Look 4">
-    <img src="5.jpg" alt="Look 5">
-    <img src="6.jpeg" alt="Look 6">
-    <img src="7.jpg" alt="Look 7">
-    <img src="8.jpg" alt="Look 8">
-    <img src="9.jpeg" alt="Look 9">
-    <img src="10.jpeg" alt="Look 10">
-    <img src="11.jpg" alt="Look 11">
-    <img src="12.jpg" alt="Look 12">
-  </section>
+  <!-- Hero Runway -->
+  <header class="hero">
+    <h1 class="hero-text">Beauty & Brains at Just Applause</h1>
+
+    <!-- Runway sequence -->
+    <div class="model" style="animation-delay: 1s;"><img src="1.jpg" alt="Look 1"></div>
+    <div class="model" style="animation-delay: 2s;"><img src="2.jpg" alt="Look 2"></div>
+    <div class="model" style="animation-delay: 3s;"><img src="3.jpg" alt="Look 3"></div>
+    <div class="model" style="animation-delay: 4s;"><img src="4.jpeg" alt="Look 4"></div>
+    <div class="model" style="animation-delay: 5s;"><img src="5.jpg" alt="Look 5"></div>
+    <div class="model" style="animation-delay: 6s;"><img src="6.jpeg" alt="Look 6"></div>
+    <div class="model" style="animation-delay: 7s;"><img src="7.jpg" alt="Look 7"></div>
+    <div class="model" style="animation-delay: 8s;"><img src="8.jpg" alt="Look 8"></div>
+    <div class="model" style="animation-delay: 9s;"><img src="9.jpeg" alt="Look 9"></div>
+    <div class="model" style="animation-delay: 10s;"><img src="10.jpeg" alt="Look 10"></div>
+    <div class="model" style="animation-delay: 11s;"><img src="11.jpg" alt="Look 11"></div>
+    <div class="model" style="animation-delay: 12s;"><img src="12.jpg" alt="Look 12"></div>
+  </header>
 
   <!-- Pricing -->
-  <section class="pricing" id="pricing">
-    <h2>Beauty and Brains at Just Applause</h2>
-    <div class="price-grid">
-      <div class="price-item"><img src="1.jpg"><p>$26</p></div>
-      <div class="price-item"><img src="2.jpg"><p>$24</p></div>
-      <div class="price-item"><img src="3.HEIC"><p>$14</p></div>
-      <div class="price-item"><img src="4.jpeg"><p>$17.50</p></div>
-      <div class="price-item"><img src="5.jpg"><p>$48</p></div>
-      <div class="price-item"><img src="6.jpeg"><p>$44</p></div>
-      <div class="price-item"><img src="7.jpg"><p>$26</p></div>
-      <div class="price-item"><img src="8.jpg"><p>$24</p></div>
-      <div class="price-item"><img src="9.jpeg"><p>$14</p></div>
-      <div class="price-item"><img src="10.jpeg"><p>$17.50</p></div>
-      <div class="price-item"><img src="11.jpg"><p>$48</p></div>
-      <div class="price-item"><img src="12.jpg"><p>$44</p></div>
-    </div>
+  <section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <img src="pricing-list.png" alt="Price List">
   </section>
 
   <!-- About -->
-  <section class="about" id="about">
+  <section id="about">
     <h2>About Just Applause</h2>
     <p>
-      Just Applause was founded by a 17-year-old who poured the majority of her life savings into a risk 
-      that started with nothing more than a late-night TikTok scroll. A simple hashtag — #YOLO — and a song 
-      sparked the thought: why not me?<br><br>
-      This wasn’t just about fashion. It was about turning a dream into reality against the odds. I thought it through, 
-      I struggled with doubt, and I knew failure was a possibility — but I did it anyway.<br><br>
+      Just Applause was founded by a 17-year-old who poured the majority of her life savings into a risk that started 
+      with nothing more than a late-night TikTok scroll. A simple hashtag — #YOLO — and a song sparked the thought: why not me? <br><br>
+      This wasn’t just about fashion. It was about turning a dream into reality against the odds. I thought it through, I struggled with doubt, 
+      and I knew failure was a possibility — but I did it anyway. <br><br>
       Even if I didn’t believe in my current self, I did it for my younger self.
     </p>
   </section>
 
   <!-- Contact -->
-  <section class="contact" id="contact">
+  <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:justapplause0101@gmail.com">justapplause0101@gmail.com</a></p>
   </section>
 
+  <!-- Footer -->
   <footer>
     © 2025 Just Applause · Empowered Elegance
   </footer>
 
+  <!-- Script: turn background pink after first model -->
   <script>
-    // Background color change after first image
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        document.body.style.background = "#f8d9e6"; // soft pastel pink
-      }, 1000); // switches right as runway begins
-    });
+    setTimeout(() => {
+      document.body.style.background = "#f8d9e6"; // pastel pink
+    }, 1500); 
   </script>
 </body>
 </html>
