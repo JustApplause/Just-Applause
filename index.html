@@ -67,11 +67,26 @@
     section h2 { font-size: 2rem; margin-bottom: 1rem; color: #880e4f; }
     section p { max-width: 700px; margin: auto; font-size: 1.2rem; line-height: 1.7; }
 
-    /* Pricing */
-    .pricing img {
-      max-width: 90%;
+    /* Pricing (FIXED) */
+    .price-list {
+      max-width: 500px;
+      margin: 2rem auto;
+      text-align: left;
+      background: #fff;
+      color: #333;
+      padding: 1.5rem;
       border-radius: 12px;
-      margin-top: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    .price-list p {
+      margin: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.5rem;
+    }
+    .price-list p:last-child {
+      border-bottom: none;
     }
 
     /* Contact */
@@ -108,7 +123,7 @@
     <!-- Runway sequence -->
     <div class="model" style="animation-delay: 1s;"><img src="1.jpg" alt="Look 1"></div>
     <div class="model" style="animation-delay: 2s;"><img src="2.jpg" alt="Look 2"></div>
-    <div class="model" style="animation-delay: 3s;"><img src="3.jpg" alt="Look 3"></div> <!-- fixed -->
+    <div class="model" style="animation-delay: 3s;"><img src="3.jpg" alt="Look 3"></div>
     <div class="model" style="animation-delay: 4s;"><img src="4.jpeg" alt="Look 4"></div>
     <div class="model" style="animation-delay: 5s;"><img src="5.jpg" alt="Look 5"></div>
     <div class="model" style="animation-delay: 6s;"><img src="6.jpeg" alt="Look 6"></div>
@@ -121,20 +136,19 @@
   </header>
 
   <!-- Pricing -->
-<section id="pricing" class="pricing">
-  <h2>Pricing</h2>
-  <div class="price-list">
-    <p>Black Top – $26</p>
-    <p>Graphic Tee – $24</p>
-    <p>Black Long Sleeve – $14</p>
-    <p>Blue Long Sleeve – $24</p>
-    <p>Grey Top – $17.50</p>
-    <p>Brown Corset – $48</p>
-    <p>Floral Corset – $44</p>
-    <p>Black Corset – $44</p>
-  </div>
-</section>
-
+  <section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <div class="price-list">
+      <p>Black Top – $26</p>
+      <p>Graphic Tee – $24</p>
+      <p>Black Long Sleeve – $14</p>
+      <p>Blue Long Sleeve – $24</p>
+      <p>Grey Top – $17.50</p>
+      <p>Brown Corset – $48</p>
+      <p>Floral Corset – $44</p>
+      <p>Black Corset – $44</p>
+    </div>
+  </section>
 
   <!-- About -->
   <section id="about">
@@ -149,7 +163,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:justapplause0101@gmail.com">justapplause0101@gmail.com</a></p>
   </section>
