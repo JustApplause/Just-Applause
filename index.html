@@ -8,7 +8,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Didot', serif;
-      background: #000; /* start black */
+      background: #000; /* Start black */
       color: #fff;
       overflow-x: hidden;
       transition: background 1s ease;
@@ -17,13 +17,13 @@
     /* Navbar */
     .navbar {
       position: fixed; top: 0; left: 0; width: 100%;
-      display: flex; justify-content: space-between;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 1.2rem 2rem;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
       z-index: 1000;
     }
     .navbar .logo {
-      font-size: 1.5rem; font-weight: bold; letter-spacing: 3px;
+      font-size: 1.6rem; font-weight: bold; letter-spacing: 3px;
     }
     .navbar a {
       color: #fff; text-decoration: none; margin: 0 1rem;
@@ -34,7 +34,7 @@
     .hero {
       position: relative; height: 100vh;
       display: flex; justify-content: center; align-items: center;
-      text-align: center; overflow: hidden;
+      overflow: hidden;
     }
     .hero-text {
       position: absolute; top: 15%;
@@ -46,7 +46,7 @@
     }
     @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 
-    /* Models walking from side */
+    /* Models walking in */
     .model {
       position: absolute; bottom: 100px;
       opacity: 0; transform: translateX(100%) scale(0.9);
@@ -67,7 +67,7 @@
     section h2 { font-size: 2rem; margin-bottom: 1rem; color: #880e4f; }
     section p { max-width: 700px; margin: auto; font-size: 1.2rem; line-height: 1.7; }
 
-    /* Pricing (your uploaded list image) */
+    /* Pricing */
     .pricing img {
       max-width: 90%;
       border-radius: 12px;
